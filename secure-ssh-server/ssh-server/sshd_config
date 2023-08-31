@@ -53,6 +53,7 @@ PermitTunnel no
 DebianBanner no
 Match User sshu1
  ChrootDirectory /data
+ ForceCommand internal-sftp
 
 Subsystem sftp /usr/lib/openssh/sftp-server
 
