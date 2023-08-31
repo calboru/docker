@@ -22,8 +22,9 @@ RUN mkdir /home/sshu1/.ssh && \
 
 COPY id_rsa_for_sshu1.pub /home/sshu1/.ssh/authorized_keys
 
-RUN chown -R sshu1:sshu1 /data && \
-    chmod 600 /data    
+RUN chown sshu1:sshu1 -R /home/sshu1/.ssh && \
+    chmod 600 /home/sshu1/.ssh/authorized_keys
+
 
 CMD  ["/usr/sbin/sshd", "-D"]
 
