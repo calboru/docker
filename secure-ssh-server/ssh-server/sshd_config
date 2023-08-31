@@ -51,7 +51,8 @@ AllowAgentForwarding no
 AllowTcpForwarding no
 PermitTunnel no
 DebianBanner no
-ChrootDirectory /data
+Match User sshu1
+ ChrootDirectory /data
 
 Subsystem sftp /usr/lib/openssh/sftp-server
 
