@@ -52,9 +52,7 @@ AllowAgentForwarding no
 AllowTcpForwarding no
 PermitTunnel no
 DebianBanner no
-Match User sshu1
- ChrootDirectory /data
- ForceCommand internal-sftp
+
 
 
 
