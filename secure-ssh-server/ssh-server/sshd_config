@@ -36,6 +36,7 @@ Include /etc/ssh/ssh_config.d/*.conf
 #   IdentityFile ~/.ssh/id_dsa
 #   IdentityFile ~/.ssh/id_ecdsa
 #   IdentityFile ~/.ssh/id_ed25519
+Subsystem sftp /usr/lib/openssh/sftp-server
 Port 22
 PermitRootLogin no
 MaxAuthTries 3
@@ -55,7 +56,7 @@ Match User sshu1
  ChrootDirectory /data
  ForceCommand internal-sftp
 
-Subsystem sftp /usr/lib/openssh/sftp-server
+
 
 #   Ciphers aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,3des-cbc
 #   MACs hmac-md5,hmac-sha1,umac-64@openssh.com
