@@ -36,7 +36,7 @@ Include /etc/ssh/ssh_config.d/*.conf
 #   IdentityFile ~/.ssh/id_dsa
 #   IdentityFile ~/.ssh/id_ecdsa
 #   IdentityFile ~/.ssh/id_ed25519
-Port 41
+Port 22
 PermitRootLogin no
 MaxAuthTries 3
 LoginGraceTime 20
@@ -51,6 +51,10 @@ AllowAgentForwarding no
 AllowTcpForwarding no
 PermitTunnel no
 DebianBanner no
+ChrootDirectory /data
+Match User sshu1
+ForceCommand internal-sftp
+
 #   Ciphers aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,3des-cbc
 #   MACs hmac-md5,hmac-sha1,umac-64@openssh.com
 #   EscapeChar ~
