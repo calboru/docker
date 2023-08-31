@@ -1,0 +1,22 @@
+version: "3"
+services:
+  developer:
+    container_name: ssh-server
+    build: ./ssh-server
+    ports:
+      - 21:21
+    volumes:
+      - repositories:/repo
+
+volumes:
+  repositories:
+#HOW TO RUN THE CONTAINER AND DEVELOP IN THE CONTAINARIZED ENVIRONMENT
+#1. docker-compose up -d
+#2. goto Visual Studio Code command pallet
+#3. select 'attach to running container'
+#4. select 'developer'
+
+#NOTES
+#If you need more Linux utilities in the container environment, add them in the ./developer/Dockerfile on line #6
+#In the macOS environment Visual Studio Code plug-ins for the container will be stored in the following location
+#~/Library/Application Support/Code/User/globalStorage/ms-vscode-remote.remote-containers/imageConfigs
