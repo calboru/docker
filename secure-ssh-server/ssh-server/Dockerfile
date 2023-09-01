@@ -17,17 +17,13 @@ RUN useradd -rm -d /home/sshu1 -s /bin/bash sshu1 && \
 RUN mkdir /home/sshu1/.ssh && \
     chmod 700 /home/sshu1/.ssh  
 
-#&& \
-#   chown -R sshu1:sshu1 data && \
-#  chmod -R 600 data
-
-
 COPY id_rsa_for_sshu1.pub /home/sshu1/.ssh/authorized_keys
 
 RUN chown sshu1:sshu1 -R /home/sshu1/.ssh && \
     chmod 600 /home/sshu1/.ssh/authorized_keys
 
-WORKDIR /data
+RUN mkdir /home/sshu1/data && \
+    chmod 600 /home/sshu1/data  
 
 CMD  ["/usr/sbin/sshd", "-D"]
 
