@@ -5,10 +5,9 @@ filter   = sshd
 maxretry = 2
 ignoreip = 127.0.0.1/8
 logtimezone = UTC
-bantime = 10m
 mode = aggressive
-findtime = 1m
-default_backend = auto
+backend = systemd
 
 [sshd]
 enabled = true
+backend = systemd
