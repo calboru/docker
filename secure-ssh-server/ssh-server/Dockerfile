@@ -11,8 +11,6 @@ RUN apt update && \
 
 COPY jail.local /etc/fail2ban/jail.local
 
-RUN systemctl enable --now fail2ban
-
 COPY sshd_config /etc/ssh
 
 RUN useradd -rm -d /home/sshu1 -s /bin/bash sshu1 && \
@@ -32,7 +30,7 @@ RUN mkdir -p /data/uploads && \
 
 
 
-CMD  service ssh start 
+CMD  systemctl enable ssh --now && systemctl enable --now fail2ban 
 
 #BEFORE BUILD THE CONTAINER CREATE SSH KEY
 #ssh-keygen -b 4096 -f id_rsa_for_sshu1
