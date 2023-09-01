@@ -2,9 +2,13 @@
 enabled  = true
 port     = ssh
 filter   = sshd
-maxretry = 3
+maxretry = 2
 ignoreip = 127.0.0.1/8
 logtimezone = UTC
+bantime = 10m
+mode = aggressive
+findtime = 1m
+default_backend = auto
 
 [sshd]
 enabled = true
