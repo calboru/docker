@@ -30,7 +30,7 @@ RUN mkdir -p /data/uploads && \
     chmod 777 /data/uploads
 
 
-CMD  /usr/sbin/sshd -D && fail2ban-client start
+CMD  /usr/sbin/sshd -D && service fail2ban start
 
 #BEFORE BUILD THE CONTAINER CREATE SSH KEY
 #ssh-keygen -b 4096 -f id_rsa_for_sshu1
