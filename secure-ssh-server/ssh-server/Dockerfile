@@ -30,7 +30,8 @@ RUN mkdir -p /data/uploads && \
     chmod 777 /data/uploads
 
 
-CMD  /usr/sbin/sshd -D -E /var/log/auth.log && rm -rf /var/run/fail2ban && fail2ban-client start
+CMD  /usr/sbin/sshd -D -E /var/log/auth.log && rm -rf /var/run/fail2ban && service fail2ban start
+
 #rm -f /var/run/fail2ban/fail2ban.sock
 
 #ENTRYPOINT fail2ban-client start
