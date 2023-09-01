@@ -4,7 +4,7 @@ port     = ssh
 filter   = sshd
 maxretry = 2
 ignoreip = 127.0.0.1/8
-logtimezone = +0800
+logtimezone = ETC/UTC
 mode = aggressive
  
 
@@ -14,5 +14,5 @@ port     = ssh
 filter   = sshd
 maxretry = 2
 ignoreip = 127.0.0.1/8
-logtimezone = +0800
+logtimezone = ETC/UTC
 mode = aggressive 
