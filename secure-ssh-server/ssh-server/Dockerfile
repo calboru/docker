@@ -22,10 +22,15 @@ COPY id_rsa_for_sshu1.pub /home/sshu1/.ssh/authorized_keys
 RUN chown sshu1:sshu1 -R /home/sshu1/.ssh && \
     chmod 600 /home/sshu1/.ssh/authorized_keys
 
-RUN mkdir -p /jail/uploads && \
-    chmod 755 /jail && \
-    chown root:root /jail && \
-    chmod 777 /jail/uploads
+#RUN mkdir -p /jail/uploads && \
+#    chmod 755 /jail && \
+#    chown root:root /jail && \
+#    chmod 777 /jail/uploads
+
+RUN mkdir -p /data/uploads && \
+    chmod 755 /data && \
+    chown root:root /data && \
+    chmod 777 /data/uploads
 
 CMD  ["/usr/sbin/sshd", "-D"]
 
