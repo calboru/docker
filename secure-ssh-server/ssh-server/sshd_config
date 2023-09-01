@@ -54,8 +54,7 @@ PermitTunnel no
 DebianBanner no
 Match User sshu1
     ForceCommand internal-sftp
-    ChrootDirectory /home/sshu1/data
-
+    ChrootDirectory /jail
 
 #   Ciphers aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,3des-cbc
 #   MACs hmac-md5,hmac-sha1,umac-64@openssh.com
