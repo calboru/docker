@@ -2,6 +2,8 @@ version: "3"
 services:
   ssh-server:
     container_name: ssh-server
+    environment:
+      - TZ=america/new_york
     build: ./ssh-server
     ports:
       - 22:22
