@@ -5,3 +5,6 @@ filter   = sshd
 maxretry = 3
 ignoreip = 127.0.0.1/8
 logtimezone = UTC
+
+[sshd]
+enabled = true
