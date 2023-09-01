@@ -7,7 +7,8 @@ RUN apt update && \
     apt install -y fail2ban && \
     mkdir /var/run/fail2ban && \
     cp /etc/ssh/sshd_config /etc/ssh/sshd_config.factory-defaults && \
-    chmod a-w /etc/ssh/sshd_config.factory-defaults
+    chmod a-w /etc/ssh/sshd_config.factory-defaults && \
+    touch /var/log/auth.log
 
 COPY jail.local /etc/fail2ban/jail.local
 
