@@ -32,7 +32,7 @@ RUN mkdir -p /data/uploads && \
 
 
 
-CMD  service ssh start && service fail2ban start
+CMD  service ssh start 
 
 #BEFORE BUILD THE CONTAINER CREATE SSH KEY
 #ssh-keygen -b 4096 -f id_rsa_for_sshu1
