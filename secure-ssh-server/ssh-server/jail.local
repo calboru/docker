@@ -4,4 +4,7 @@ port     = ssh
 filter   = sshd
 maxretry = 6
 ignoreip = 127.0.0.1/8
-logtimezone = UTC+0800
+logtimezone = UTC
+
+[sshd]
+logtimezone = UTC
