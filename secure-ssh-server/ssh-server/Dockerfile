@@ -29,7 +29,6 @@ RUN mkdir -p /data/uploads && \
     chown root:root /data && \
     chmod 777 /data/uploads
 
-COPY fail2ban_1.0.2-1.upstream1_all.deb /etc
 
 CMD   rm -f /var/run/fail2ban/* && service fail2ban start && /usr/sbin/sshd -D -E /var/log/auth.log
 
