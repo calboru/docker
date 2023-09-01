@@ -9,6 +9,10 @@ RUN apt update && \
     cp /etc/ssh/sshd_config /etc/ssh/sshd_config.factory-defaults && \
     chmod a-w /etc/ssh/sshd_config.factory-defaults
 
+COPY jail.local /etc/fail2ban/jail.local
+
+RUN systemctl enable --now fail2ban
+
 COPY sshd_config /etc/ssh
 
 RUN useradd -rm -d /home/sshu1 -s /bin/bash sshu1 && \
@@ -26,9 +30,9 @@ RUN mkdir -p /data/uploads && \
     chown root:root /data && \
     chmod 777 /data/uploads
 
-COPY jail.local /etc/fail2ban/jail.local
 
-CMD  service ssh start && fail2ban-client start
+
+CMD  service ssh start && service fail2ban start
 
 #BEFORE BUILD THE CONTAINER CREATE SSH KEY
 #ssh-keygen -b 4096 -f id_rsa_for_sshu1
