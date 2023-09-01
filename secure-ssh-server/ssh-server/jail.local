@@ -4,10 +4,15 @@ port     = ssh
 filter   = sshd
 maxretry = 2
 ignoreip = 127.0.0.1/8
-logtimezone = UTC
+logtimezone = +0800
 mode = aggressive
-backend = systemd
+ 
 
 [sshd]
 enabled = true
-backend = systemd
+port     = ssh
+filter   = sshd
+maxretry = 2
+ignoreip = 127.0.0.1/8
+logtimezone = +0800
+mode = aggressive 
