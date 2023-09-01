@@ -29,7 +29,7 @@ RUN mkdir -p /data/uploads && \
 
 COPY jail.local /etc/fail2ban/jail.local
 
-CMD systemctl enable fail2ban && systemctl start fail2ban && /usr/sbin/sshd -D
+CMD fail2ban-client start && /usr/sbin/sshd -D
 
 #BEFORE BUILD THE CONTAINER CREATE SSH KEY
 #ssh-keygen -b 4096 -f id_rsa_for_sshu1
