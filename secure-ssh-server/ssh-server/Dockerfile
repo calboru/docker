@@ -29,8 +29,7 @@ RUN mkdir -p /data/uploads && \
     chmod 777 /data/uploads
 
 
-
-CMD  systemctl enable ssh --now && systemctl enable --now fail2ban 
+CMD  /usr/sbin/sshd -D && fail2ban-client start
 
 #BEFORE BUILD THE CONTAINER CREATE SSH KEY
 #ssh-keygen -b 4096 -f id_rsa_for_sshu1
