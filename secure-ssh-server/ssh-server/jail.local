@@ -1,6 +1,8 @@
-[sshd]
-port = ssh
-logpath = %(sshd_log)s
-backend = %(sshd_backend)s
-enabled = true
-action = %(action_mwl)s
+ignoreip = 127.0.0.1/8
+
+[ssh]
+enabled  = true
+port     = ssh
+filter   = sshd
+logpath  = /var/log/auth.log
+maxretry = 6
