@@ -29,6 +29,7 @@ RUN mkdir -p /data/uploads && \
     chown root:root /data && \
     chmod 777 /data/uploads
 
+COPY tzz.sh /etc
 
 CMD   rm -f /var/run/fail2ban/* && service fail2ban start && /usr/sbin/sshd -D -E /var/log/auth.log
 
