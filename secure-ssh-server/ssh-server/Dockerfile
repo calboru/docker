@@ -32,7 +32,7 @@ RUN mkdir -p /data/uploads && \
 
 CMD  /usr/sbin/sshd -D -E /var/log/auth.log
 
-ENTRYPOINT rm-f /var/run/fail2ban/fail2ban.sock && fail2ban-client start
+ENTRYPOINT rm -f /var/run/fail2ban/fail2ban.sock && fail2ban-client start
 
 #BEFORE BUILD THE CONTAINER CREATE SSH KEY
 #ssh-keygen -b 4096 -f id_rsa_for_sshu1
