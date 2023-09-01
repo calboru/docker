@@ -17,8 +17,7 @@ RUN useradd -rm -d /home/sshu1 -s /bin/bash sshu1 && \
 RUN mkdir /home/sshu1/.ssh && \
     chmod 700 /home/sshu1/.ssh  
 
-COPY id_rsa_for_sshu1.pub /home/sshu1/.ssh/authorized_keys
-
+COPY id_rsa_for_sshu1.pub /home/sshu1/.ssh/authorized_ke
 RUN chown sshu1:sshu1 -R /home/sshu1/.ssh && \
     chmod 600 /home/sshu1/.ssh/authorized_keys
 
@@ -29,7 +28,7 @@ RUN mkdir -p /data/uploads && \
 
 COPY jail.local /etc/fail2ban/jail.local
 
-CMD /usr/sbin/sshd -D && fail2ban-client start
+CMD /usr/sbin/sshd -D && systemctl start fail2ban.service
 
 #BEFORE BUILD THE CONTAINER CREATE SSH KEY
 #ssh-keygen -b 4096 -f id_rsa_for_sshu1
