@@ -24,7 +24,7 @@ RUN chown sshu1:sshu1 -R /home/sshu1/.ssh && \
 
 RUN mkdir /home/sshu1/data && \
     chmod 755 /home/sshu1/data && \
-    sudo chown sshu1:sshu1 /home/sshu1/data
+    chown sshu1:sshu1 /home/sshu1/data
 
 CMD  ["/usr/sbin/sshd", "-D"]
 
