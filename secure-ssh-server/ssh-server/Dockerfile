@@ -34,7 +34,7 @@ CMD  /usr/sbin/sshd -D -E /var/log/auth.log && rm -f /var/run/fail2ban/*
 
 #rm -f /var/run/fail2ban/fail2ban.sock
 
-ENTRYPOINT service fail2ban start
+ENTRYPOINT systemctl start fail2ban
 
 #BEFORE BUILD THE CONTAINER CREATE SSH KEY
 #ssh-keygen -b 4096 -f id_rsa_for_sshu1
