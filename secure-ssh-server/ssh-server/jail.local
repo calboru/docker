@@ -7,3 +7,4 @@ findtime = 300
 bantime = 3600
 ignoreip = 127.0.0.1
 backend = systemd
+logpath = /data/auth/log
