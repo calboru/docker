@@ -43,6 +43,7 @@ services:
     volumes:
       - ./crowdsec/acquis.yaml:/etc/crowdsec/acquis.yaml
       - logs:/var/log/nginx
+      - sshlogs:/var/log
       - crowdsec-db:/var/lib/crowdsec/data/
       - crowdsec-config:/etc/crowdsec/
     networks:
@@ -75,12 +76,13 @@ services:
       - 22:22
     volumes:
       - data:/data
-      - logs:/var/log
+      - sshlogs:/var/log
     networks:
       crowdsec_test:
         ipv4_address: 172.20.0.6
 
 volumes:
+  sshlogs:
   logs:
   crowdsec-db:
   crowdsec-config:
