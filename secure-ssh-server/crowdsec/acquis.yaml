@@ -1,4 +1,4 @@
 filenames:
- - /var/log/nginx/example.*.log
+ - /var/log/openssh/*
 labels:
-  type: nginx
+  type: syslog
