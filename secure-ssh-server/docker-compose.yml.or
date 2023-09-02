@@ -8,7 +8,6 @@ services:
       - 22:22
     volumes:
       - data:/data
-      - log:/var/log
     restart: unless-stopped
 
   #the application itself : static html served by apache2.
@@ -81,6 +80,7 @@ volumes:
   logs:
   crowdsec-db:
   crowdsec-config:
+  data:
 
 networks:
   crowdsec_test:
