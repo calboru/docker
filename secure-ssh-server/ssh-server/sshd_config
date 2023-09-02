@@ -52,7 +52,7 @@ AllowAgentForwarding no
 AllowTcpForwarding no
 PermitTunnel no
 DebianBanner no
-LogLevel verbose
+LogLevel VERBOSE
 SysLogFacility AUTH
 Match User sshu1
     ForceCommand internal-sftp
