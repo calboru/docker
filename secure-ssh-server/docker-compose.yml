@@ -37,6 +37,7 @@ services:
       #this is the list of collections we want to install
       #https://hub.crowdsec.net/author/crowdsecurity/collections/nginx
       COLLECTIONS: "crowdsecurity/nginx crowdsecurity/iptables crowdsecurity/smb"
+      ENROLL_KEY: "clm1wa3g40001l008nvz6o9bg"
       GID: "${GID-1000}"
     depends_on:
       - "reverse-proxy"
