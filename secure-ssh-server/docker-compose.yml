@@ -81,6 +81,7 @@ volumes:
   logs:
   crowdsec-db:
   crowdsec-config:
+  data:
 
 networks:
   crowdsec_test:
