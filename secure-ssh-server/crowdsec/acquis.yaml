@@ -1,4 +1,5 @@
+source: file
 filenames:
  - /var/log/*
 labels:
-  type: syslog
+ type: syslog
