@@ -31,6 +31,7 @@ services:
   #crowdsec : it will be fed nginx's logs
   #and later we're going to plug a firewall bouncer to it
   crowdsec:
+    container_name: crowdsec
     image: crowdsecurity/crowdsec
     restart: always
     environment:
@@ -81,27 +82,21 @@ services:
       - USER_NAME=manatee #optional
     volumes:
       - sshlogs:/config/logs/openssh
-      - /path/to/appdata/config:/config
+      - ./ssh-server/:/config
     ports:
-      - 22:2222
+      - 41:2222
     restart: unless-stopped
     networks:
       crowdsec_test:
         ipv4_address: 172.20.0.6
 
-  # ssh-server:
-  #   container_name: ssh-server
-  #   build: ./ssh-server
-  #   restart: unless-stopped
-  #   ports:
-  #     - 22:22
-  #   volumes:
-  #     - data:/data
-  #     - sshlogs:/var/log
-  #   networks:
-  #     crowdsec_test:
-  #       ipv4_address: 172.20.0.6
-
+  attack-server:
+    build: ../containerized-dev/developer
+    container_name: attack-server
+    restart: unless-stopped
+    networks:
+      crowdsec_test:
+        ipv4_address: 172.20.0.7
 volumes:
   sshlogs:
   logs:
