@@ -1,0 +1,3 @@
+filename: /logs/apache2/*.log
+labels:
+  type: apache2
