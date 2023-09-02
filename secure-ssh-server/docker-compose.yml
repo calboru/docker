@@ -80,6 +80,7 @@ services:
       - USER_PASSWORD=x11!44@1 #optional
       - USER_NAME=manatee #optional
     volumes:
+      - logs:/config/logs/openssh
       - /path/to/appdata/config:/config
     ports:
       - 22:2222
