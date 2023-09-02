@@ -44,7 +44,7 @@ services:
     volumes:
       - ./crowdsec/acquis.yaml:/etc/crowdsec/acquis.yaml
       - logs:/var/log/nginx
-      - sshlogs:/var/log/openssh
+      - sshlogs:/var/log
       - crowdsec-db:/var/lib/crowdsec/data/
       - crowdsec-config:/etc/crowdsec/
     networks:
