@@ -68,19 +68,35 @@ services:
     networks:
       crowdsec_test:
         ipv4_address: 172.20.0.5
-
-  ssh-server:
-    container_name: ssh-server
-    build: ./ssh-server
-    restart: unless-stopped
+  openssh-server:
+    image: lscr.io/linuxserver/openssh-server:latest
+    container_name: openssh-server
+    hostname: openssh-server #optional
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - PASSWORD_ACCESS=true #optional
+      - USER_PASSWORD=x11!44@1 #optional
+      - USER_NAME=manatee #optional
+    volumes:
+      - /path/to/appdata/config:/config
     ports:
       - 22:22
-    volumes:
-      - data:/data
-      - sshlogs:/var/log
-    networks:
-      crowdsec_test:
-        ipv4_address: 172.20.0.6
+    restart: unless-stopped
+
+  # ssh-server:
+  #   container_name: ssh-server
+  #   build: ./ssh-server
+  #   restart: unless-stopped
+  #   ports:
+  #     - 22:22
+  #   volumes:
+  #     - data:/data
+  #     - sshlogs:/var/log
+  #   networks:
+  #     crowdsec_test:
+  #       ipv4_address: 172.20.0.6
 
 volumes:
   sshlogs:
