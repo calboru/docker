@@ -82,7 +82,7 @@ services:
     volumes:
       - /path/to/appdata/config:/config
     ports:
-      - 22:22
+      - 2222:22
     restart: unless-stopped
 
   # ssh-server:
