@@ -8,7 +8,7 @@ services:
       - 22:22
     volumes:
       - data:/data
-      - log:/var/log
+      - logs:/var/log
     restart: unless-stopped
 
   #the application itself : static html served by apache2.

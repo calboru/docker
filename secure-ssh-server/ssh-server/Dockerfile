@@ -6,7 +6,8 @@ RUN apt update && \
     apt install -y openssh-server && \
     cp /etc/ssh/sshd_config /etc/ssh/sshd_config.factory-defaults && \
     chmod a-w /etc/ssh/sshd_config.factory-defaults && \
-    touch /var/log/auth.log
+    touch /var/log/auth.log && \
+    touch /var/log/manatee.log
 
 COPY sshd_config /etc/ssh
 
