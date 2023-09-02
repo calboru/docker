@@ -1,16 +1,6 @@
 version: "3"
 
 services:
-  ssh-server:
-    container_name: ssh-server
-    build: ./ssh-server
-    ports:
-      - 22:22
-    volumes:
-      - data:/data
-      - logs:/var/log
-    restart: unless-stopped
-
   #the application itself : static html served by apache2.
   #the html can be found in ./app/
   app:
@@ -76,6 +66,19 @@ services:
     networks:
       crowdsec_test:
         ipv4_address: 172.20.0.5
+
+  ssh-server:
+    container_name: ssh-server
+    build: ./ssh-server
+    restart: unless-stopped
+    ports:
+      - 22:22
+    volumes:
+      - data:/data
+      - logs:/var/log
+    networks:
+      crowdsec_test:
+        ipv4_address: 172.20.0.6
 
 volumes:
   logs:
