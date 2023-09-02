@@ -1,5 +1,4 @@
-source: file
 filenames:
- - /var/log/openssh/*
+ - /var/log/nginx/example.*.log
 labels:
- type: syslog
+  type: nginx
