@@ -44,7 +44,7 @@ services:
     volumes:
       - ./crowdsec/acquis.yaml:/etc/crowdsec/acquis.yaml
       - logs:/var/log/nginx
-      - sshlogs:/var/log
+      - sshlogs:/var/log/openssh
       - crowdsec-db:/var/lib/crowdsec/data/
       - crowdsec-config:/etc/crowdsec/
     networks:
@@ -80,7 +80,7 @@ services:
       - USER_PASSWORD=x11!44@1 #optional
       - USER_NAME=manatee #optional
     volumes:
-      - logs:/config/logs/openssh
+      - sshlogs:/config/logs/openssh
       - /path/to/appdata/config:/config
     ports:
       - 22:2222

@@ -1,4 +1,5 @@
 filenames:
-  - /var/log/auth.log
+ - /var/log/nginx/example.*.log
+ - /var/log/openssh/*
 labels:
   type: syslog
