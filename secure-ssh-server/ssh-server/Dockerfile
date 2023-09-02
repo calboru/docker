@@ -4,13 +4,9 @@ RUN mkdir -p /var/run/sshd
 
 RUN apt update && \
     apt install -y openssh-server && \
-    apt install -y fail2ban && \
-    mkdir /var/run/fail2ban && \
     cp /etc/ssh/sshd_config /etc/ssh/sshd_config.factory-defaults && \
     chmod a-w /etc/ssh/sshd_config.factory-defaults && \
     touch /var/log/auth.log
-
-COPY jail.local /etc/fail2ban/jail.local
 
 COPY sshd_config /etc/ssh
 
@@ -29,7 +25,9 @@ RUN mkdir -p /data/uploads && \
     chown root:root /data && \
     chmod 777 /data/uploads
 
-CMD   rm -f /var/run/fail2ban/* && service fail2ban start && /usr/sbin/sshd -D -E /var/log/auth.log
+RUN curl -s https://packagecloud.io/install/repositories/crowdsec/crowdsec/script.deb.sh | sudo bash
+
+CMD /usr/sbin/sshd -D -E /var/log/auth.log
 
 #BEFORE BUILD THE CONTAINER CREATE SSH KEY
 #ssh-keygen -b 4096 -f id_rsa_for_sshu1
