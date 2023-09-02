@@ -84,6 +84,9 @@ services:
     ports:
       - 2222:22
     restart: unless-stopped
+    networks:
+      crowdsec_test:
+        ipv4_address: 172.20.0.6
 
   # ssh-server:
   #   container_name: ssh-server
