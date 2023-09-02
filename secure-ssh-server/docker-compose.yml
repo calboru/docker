@@ -36,7 +36,7 @@ services:
     environment:
       #this is the list of collections we want to install
       #https://hub.crowdsec.net/author/crowdsecurity/collections/nginx
-      COLLECTIONS: "crowdsecurity/nginx crowdsecurity/crowdsec-firewall-bouncer-iptables crowdsecurity/crowdsec-firewall-bouncer-nftables"
+      COLLECTIONS: "crowdsecurity/nginx"
       GID: "${GID-1000}"
     depends_on:
       - "reverse-proxy"
