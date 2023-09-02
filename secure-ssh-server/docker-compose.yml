@@ -69,7 +69,8 @@ services:
       crowdsec_test:
         ipv4_address: 172.20.0.5
   openssh-server:
-    image: lscr.io/linuxserver/openssh-server:latest
+    #image: lscr.io/linuxserver/openssh-server:latest
+    build: ./ssh-server
     container_name: openssh-server
     hostname: openssh-server #optional
     environment:
