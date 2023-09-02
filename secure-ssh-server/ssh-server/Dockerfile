@@ -3,7 +3,7 @@ FROM ubuntu:latest
 RUN mkdir -p /var/run/sshd
 
 RUN apt update && \
-    apt install -y openssh-server curl && \
+    apt install -y openssh-server curl crowdsec crowdsec-firewall-bouncer-iptables crowdsec-firewall-bouncer-nftables && \
     cp /etc/ssh/sshd_config /etc/ssh/sshd_config.factory-defaults && \
     chmod a-w /etc/ssh/sshd_config.factory-defaults && \
     touch /var/log/auth.log
