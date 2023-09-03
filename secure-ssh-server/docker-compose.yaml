@@ -85,6 +85,10 @@ services:
       - PUID=1000
       - PGID=1000
       - PUBLIC_KEY_FILE=./ssh-server/id_rsa_for_sshu1.pub
+      - PASSWORD_ACCESS=true #optional
+      - USER_PASSWORD=password #optional
+      - USER_PASSWORD_FILE=/path/to/file #optional
+      - USER_NAME=linuxserver.io #optional
     volumes:
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
