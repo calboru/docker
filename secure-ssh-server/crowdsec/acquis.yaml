@@ -1,4 +1,4 @@
 filenames:
- - /var/log/current
+ - /var/log/openssh/current
 labels:
   type: syslog
