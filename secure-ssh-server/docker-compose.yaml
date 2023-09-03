@@ -83,6 +83,10 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
+      - PASSWORD_ACCESS=${PASSWORD_ACCESS}
+      - USER_PASSWORD=${USER_PASSWORD}
+      - USER_NAME=${USER_NAME}
+      - PUBLIC_KEY_FILE=${PUBLIC_KEY_FILE}
 
     volumes:
       - /etc/timezone:/etc/timezone:ro
