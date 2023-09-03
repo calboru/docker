@@ -79,8 +79,7 @@ services:
   openssh-server:
     image: lscr.io/linuxserver/openssh-server:latest
     container_name: sshsrv
-    depends_on:
-      - "crowdsec"
+
     environment:
       - PUID=1000
       - PGID=1000
@@ -93,7 +92,7 @@ services:
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
       #     - ./ssh-server/sshd_config:/etc/ssh/sshd_config
-      - sshlogs:/config/logs/openssh
+      - sshlogs:/config/logs/openssh/auth.log
     ports:
       - 22:2222
     restart: unless-stopped
