@@ -50,6 +50,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - ./crowdsec/acquis.yaml:/etc/crowdsec/acquis.yaml
       - logs:/var/log
+      - sshlogs:/var/log/openssh
       - crowdsec-db:/var/lib/crowdsec/data/
       - crowdsec-config:/etc/crowdsec/
     networks:
@@ -88,7 +89,7 @@ services:
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
       #     - ./ssh-server/sshd_config:/etc/ssh/sshd_config
-      - logs:/config/logs/openssh
+      - sshlogs:/config/logs/openssh
     ports:
       - 22:2222
     restart: unless-stopped
@@ -96,6 +97,7 @@ services:
       crowdsec_test:
         ipv4_address: 172.20.0.6
 volumes:
+  sshlogs:
   logs:
   crowdsec-db:
   crowdsec-config:
