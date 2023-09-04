@@ -84,7 +84,7 @@ services:
       - PUID=1000
       - PGID=1000
       - PUBLIC_KEY=${PUBLIC_KEY}
-      - PASSWORD_ACCESS=false
+      - PASSWORD_ACCESS=${PASSWORD_ACCESS}
       - USER_NAME=${USER_NAME}
 
     volumes:
