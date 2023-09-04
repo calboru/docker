@@ -54,7 +54,7 @@ PermitTunnel no
 DebianBanner no
 LogLevel VERBOSE
 SysLogFacility AUTH
-Match User sshu1
+Match User manatee
     ForceCommand internal-sftp
     ChrootDirectory /sftp_data
 
