@@ -11,7 +11,7 @@ RUN mkdir -p /var/run/sshd
 RUN apk update && \
     apk add openssh-server 
 
-RUN adduser -h /home/${USER_NAME} -s /bin/bash ${USER_NAME} && \
+RUN useradd -rm -d /home/${USER_NAME} -s /bin/bash ${USER_NAME} && \
     echo ${USER_NAME}:${USER_PASSWORD} | chpasswd
 
 RUN mkdir /home/${USER_NAME}/.ssh && \
