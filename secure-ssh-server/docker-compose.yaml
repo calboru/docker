@@ -77,14 +77,13 @@ services:
   #     crowdsec_test:
   #       ipv4_address: 172.20.0.5
   openssh-server:
-    build: ./ssh-server
     container_name: sshsrv
-
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - USER_NAME=${USER_NAME}
-      - USER_PASSWORD=${USER_PASSWORD}
+    build:
+      context: .
+      dockerfile: ./ssh-server/Dockerfile
+      args:
+        - USER_PASSWORD=${USER_PASSWORD}
+        - USER_NAME=${USER_NAME}
     volumes:
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
