@@ -110,7 +110,7 @@ PidFile /config/sshd.pid
 Subsystem       sftp    internal-sftp
 
 Match User manatee
-   ChrootDirectory /config
+#   ChrootDirectory /config
    ForceCommand internal-sftp
    X11Forwarding no
    AllowTcpForwarding no
