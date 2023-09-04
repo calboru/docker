@@ -112,7 +112,7 @@ Subsystem	sftp	internal-sftp
 # Example of overriding settings on a per-user basis
 Match User manatee
     ForceCommand internal-sftp
-    ChrootDirectory /data
+    ChrootDirectory /sftp_data
 #	X11Forwarding no
 #	AllowTcpForwarding no
 #	PermitTTY no
