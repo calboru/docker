@@ -88,7 +88,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - ./ssh-server/sshd_config:/etc/ssh/sshd_config
       - ./ssh-server/keys:/config/ssh_host_keys
-      - sshlogs:/config/logs/openssh
+      - sshlogs:/var/log/auth.log
       - sftp-data:/sftp_data
     ports:
       - 22:2222
