@@ -92,7 +92,7 @@ services:
       - sshlogs:/var/log
       - sftp-data:/sftp_data
     ports:
-      - 22:2222
+      - 22:22
     restart: unless-stopped
     networks:
       crowdsec_test:
