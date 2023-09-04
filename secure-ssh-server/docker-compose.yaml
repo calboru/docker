@@ -91,7 +91,7 @@ services:
       #     - logs:/var/log/auth.log
       - /sftp_data/:/sftp_data
     ports:
-      - 22:22
+      - 2222:22
     restart: unless-stopped
     # networks:
     #   crowdsec_test:

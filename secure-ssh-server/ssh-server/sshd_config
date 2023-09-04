@@ -37,7 +37,7 @@ Include /etc/ssh/ssh_config.d/*.conf
 #   IdentityFile ~/.ssh/id_ecdsa
 #   IdentityFile ~/.ssh/id_ed25519
 Subsystem sftp /usr/lib/openssh/sftp-server
-Port 22
+Port 2222
 PermitRootLogin no
 MaxAuthTries 3
 LoginGraceTime 20
