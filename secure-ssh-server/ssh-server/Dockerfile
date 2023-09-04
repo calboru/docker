@@ -8,7 +8,7 @@ RUN mkdir -p /var/run/sshd
 RUN apt update && \
     apt install -y openssh-server 
 
-RUN useradd -rm -d /home/${USER_NAME} -s /bin/bash sshu1 && \
+RUN useradd -rm -d /home/${USER_NAME} -s /bin/bash ${USER_NAME} && \
     echo ${USER_NAME}:${USER_PASSWORD} | chpasswd
 
 RUN mkdir /home/${USER_NAME}/.ssh && \
