@@ -110,7 +110,7 @@ LogLevel VERBOSE
 Subsystem sftp /usr/lib/openssh/sftp-server -l VERBOSE
 #Subsystem sftp internal-sftp -l AUTH VERBOSE
 # Example of overriding settings on a per-user basis
-StrictModes off
+StrictModes no
 Match User manatee
      ForceCommand internal-sftp
 #     ChrootDirectory %h
