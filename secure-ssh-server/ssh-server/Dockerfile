@@ -14,7 +14,7 @@ RUN useradd -rm -d /home/${USER_NAME} -s /bin/bash sshu1 && \
 RUN mkdir /home/${USER_NAME}/.ssh && \
     chmod 700 /home/${USER_NAME}/.ssh  
 
-COPY id_rsa_for_sshu1.pub /home/${USER_NAME}/.ssh/authorized_keys
+COPY ./keys/id_rsa_for_sshu1.pub /home/${USER_NAME}/.ssh/authorized_keys
 RUN chown ${USER_NAME}:${USER_NAME} -R /home/${USER_NAME}/.ssh && \
     chmod 600 /home/${USER_NAME}/.ssh/authorized_keys
 
