@@ -52,9 +52,9 @@ AllowAgentForwarding no
 AllowTcpForwarding no
 PermitTunnel no
 DebianBanner no
-Match User manatee
-    ForceCommand internal-sftp
-    ChrootDirectory /sftp_data
+# Match User manatee
+#     ForceCommand internal-sftp
+#     ChrootDirectory /sftp_data
 
 #   Ciphers aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,3des-cbc
 #   MACs hmac-md5,hmac-sha1,umac-64@openssh.com
