@@ -84,8 +84,7 @@ services:
       - PUID=1000
       - PGID=1000
       - PUBLIC_KEY=${PUBLIC_KEY}
-      - USER_NAME=${USER_NAME}
-      - PASSWORD_ACCESS=${PASSWORD_ACCESS}
+      - PASSWORD_ACCESS=false
 
     volumes:
       - /etc/timezone:/etc/timezone:ro
