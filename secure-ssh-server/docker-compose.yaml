@@ -93,9 +93,9 @@ services:
     ports:
       - 22:22
     restart: unless-stopped
-    networks:
-      crowdsec_test:
-        ipv4_address: 172.20.0.6
+    # networks:
+    #   crowdsec_test:
+    #     ipv4_address: 172.20.0.6
 volumes:
   logs:
   crowdsec-db:
