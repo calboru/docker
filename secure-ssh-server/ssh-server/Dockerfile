@@ -9,7 +9,7 @@ RUN echo ${USER_PASSWORD}
 RUN mkdir -p /var/run/sshd
 
 RUN apk update && \
-    apk add -y openssh-server 
+    apk add openssh-server 
 
 RUN useradd -rm -d /home/${USER_NAME} -s /bin/bash ${USER_NAME} && \
     echo ${USER_NAME}:${USER_PASSWORD} | chpasswd
