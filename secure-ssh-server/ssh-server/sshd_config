@@ -108,9 +108,9 @@ PidFile /config/sshd.pid
 
 # override default of no subsystems
 #Subsystem	sftp	internal-sftp -l VERBOSE
-Subsystem sftp /usr/lib/openssh/sftp-server -l VERBOSE
+Subsystem sftp /usr/lib/openssh/sftp-server
 
 # Example of overriding settings on a per-user basis
-#Match User manatee
-#    ForceCommand internal-sftp -l VERBOSE
+Match User manatee
+    ForceCommand internal-sftp
 #    ChrootDirectory /sftp_data
