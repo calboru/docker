@@ -34,7 +34,7 @@ HostKey /config/ssh_host_keys/id_rsa_for_sshu1.key
 #MaxAuthTries 6
 #MaxSessions 10
 
-PubkeyAuthentication yes
+#PubkeyAuthentication yes
 
 # The default is to check both .ssh/authorized_keys and .ssh/authorized_keys2
 # but this is overridden so installations will only check .ssh/authorized_keys
@@ -54,7 +54,7 @@ AuthorizedKeysFile	.ssh/authorized_keys
 #IgnoreRhosts yes
 
 # To disable tunneled clear text passwords, change to no here!
-PasswordAuthentication yes
+#PasswordAuthentication yes
 #PermitEmptyPasswords no
 
 # Change to no to disable s/key passwords
@@ -111,6 +111,6 @@ PidFile /config/sshd.pid
 Subsystem sftp /usr/lib/openssh/sftp-server -l VERBOSE
 
 # Example of overriding settings on a per-user basis
-Match User manatee
-    ForceCommand internal-sftp -l VERBOSE
-    ChrootDirectory /sftp_data
+#Match User manatee
+#    ForceCommand internal-sftp -l VERBOSE
+#    ChrootDirectory /sftp_data
