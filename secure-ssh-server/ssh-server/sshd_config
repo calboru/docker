@@ -112,7 +112,7 @@ Subsystem sftp internal-sftp -l AUTH VERBOSE
 # Example of overriding settings on a per-user basis
 Match User manatee
     ForceCommand internal-sftp
-    ChrootDirectory /sftp_data
+    ChrootDirectory /sftp_data/hayri
     PermitTunnel no
     AllowAgentForwarding no
     AllowTcpForwarding no
