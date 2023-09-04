@@ -22,10 +22,10 @@ COPY ./ssh-server/keys/id_rsa_for_sshu1.pub /home/${USER_NAME}/.ssh/authorized_k
 RUN chown ${USER_NAME}:${USER_NAME} -R /home/${USER_NAME}/.ssh && \
     chmod 600 /home/${USER_NAME}/.ssh/authorized_keys
 
-# RUN mkdir -p /data/uploads && \
-#     chmod 755 /data && \
-#     chown root:root /data && \
-#     chmod 777 /data/uploads
+RUN mkdir -p /sftp_data/uploads && \
+    chmod 755 /sftp_data && \
+    chown root:root /sftp_data && \
+    chmod 777 /sftp_data/uploads
 
 CMD /usr/sbin/sshd -D -E /var/log/auth.log
 
