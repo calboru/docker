@@ -50,7 +50,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - ./crowdsec/acquis.yaml:/etc/crowdsec/acquis.yaml
       - logs:/var/log
-      - sshlogs:/var/log/openssh
+      - sshlogs:/var/log
       - crowdsec-db:/var/lib/crowdsec/data/
       - crowdsec-config:/etc/crowdsec/
     networks:
