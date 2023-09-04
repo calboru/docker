@@ -77,25 +77,20 @@ services:
   #     crowdsec_test:
   #       ipv4_address: 172.20.0.5
   openssh-server:
-    image: lscr.io/linuxserver/openssh-server:latest
+    build: ./ssh-server
     container_name: sshsrv
 
     environment:
       - PUID=1000
       - PGID=1000
-      - PUBLIC_KEY=${PUBLIC_KEY}
-      - PASSWORD_ACCESS=${PASSWORD_ACCESS}
       - USER_NAME=${USER_NAME}
-
+      - USER_PASSWORD=${USER_PASSWORD}
     volumes:
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
-      #- ./ssh-server/sshd_config:/etc/ssh/sshd_config
-      #      - ./ssh-server/keys/id_rsa_for_sshu1.pub:/config/.ssh/authorized_keys
-      #- ./ssh-server/keys/host:/config/host
-      - ./ssh-server/keys/ssh_host_keys:/config/ssh_host_keys
-      - sshlogs:/config/logs/openssh
-      - /sftp_data/:/home
+      - ./ssh-server/sshd_config:/var/etc/sshd_config
+      - logs:/var/log/auth.log
+      - /sftp_data/:/sftp_data
     ports:
       - 22:2222
     restart: unless-stopped
@@ -103,11 +98,9 @@ services:
       crowdsec_test:
         ipv4_address: 172.20.0.6
 volumes:
-  sshlogs:
   logs:
   crowdsec-db:
   crowdsec-config:
-  sftp-data:
 
 networks:
   crowdsec_test:

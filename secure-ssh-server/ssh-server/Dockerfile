@@ -4,7 +4,7 @@ ARG USER_NAME
 ARG USER_PASSWORD
 
 RUN echo ${USER_NAME}
-RUN echo ${USER_PASSWORD}}
+RUN echo ${USER_PASSWORD}
 
 RUN mkdir -p /var/run/sshd
 
