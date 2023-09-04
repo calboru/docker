@@ -93,7 +93,6 @@ services:
       - ./ssh-server/sshd_config:/etc/ssh/sshd_config
       - ./ssh-server/keys:/config/ssh_host_keys
       - sshlogs:/config/logs/openssh
-      - sftp-data:/config/app
     ports:
       - 22:2222
     restart: unless-stopped

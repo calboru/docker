@@ -112,4 +112,4 @@ Subsystem	sftp	internal-sftp
 # Example of overriding settings on a per-user basis
 Match User manatee
     ForceCommand internal-sftp
-    ChrootDirectory /config/app
+    ChrootDirectory %h
