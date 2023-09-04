@@ -8,18 +8,19 @@ RUN echo ${USER_PASSWORD}}
 
 RUN mkdir -p /var/run/sshd
 
-RUN apt update && \
-    apt install -y openssh-server 
+RUN mkdir /home/${USER_NAME}
+# RUN apt update && \
+#     apt install -y openssh-server 
 
-RUN useradd -rm -d /home/${USER_NAME} -s /bin/bash ${USER_NAME} && \
-    echo ${USER_NAME}:${USER_PASSWORD} | chpasswd
+# RUN useradd -rm -d /home/${USER_NAME} -s /bin/bash ${USER_NAME} && \
+#     echo ${USER_NAME}:${USER_PASSWORD} | chpasswd
 
-RUN mkdir /home/${USER_NAME}/.ssh && \
-    chmod 700 /home/${USER_NAME}/.ssh  
+# RUN mkdir /home/${USER_NAME}/.ssh && \
+#     chmod 700 /home/${USER_NAME}/.ssh  
 
-COPY ./keys/id_rsa_for_sshu1.pub /home/${USER_NAME}/.ssh/authorized_keys
-RUN chown ${USER_NAME}:${USER_NAME} -R /home/${USER_NAME}/.ssh && \
-    chmod 600 /home/${USER_NAME}/.ssh/authorized_keys
+# COPY ./keys/id_rsa_for_sshu1.pub /home/${USER_NAME}/.ssh/authorized_keys
+# RUN chown ${USER_NAME}:${USER_NAME} -R /home/${USER_NAME}/.ssh && \
+#     chmod 600 /home/${USER_NAME}/.ssh/authorized_keys
 
 # RUN mkdir -p /data/uploads && \
 #     chmod 755 /data && \
