@@ -112,7 +112,7 @@ Subsystem sftp /usr/lib/openssh/sftp-server -l VERBOSE
 # Example of overriding settings on a per-user basis
 Match User manatee
     ForceCommand internal-sftp
-    ChrootDirectory /sftp_data/hayri
+    ChrootDirectory /sftp_data
     PermitTunnel no
     AllowAgentForwarding no
     AllowTcpForwarding no
