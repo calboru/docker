@@ -109,9 +109,8 @@ PidFile /config/sshd.pid
 # override default of no subsystems
 Subsystem       sftp    internal-sftp
 
-# Example of overriding settings on a per-user basis
-#Match User anoncvs hello world!!!
-#       X11Forwarding no
-#       AllowTcpForwarding no
-#       PermitTTY no
-#       ForceCommand cvs server
+Match User manatee
+   ChrootDirectory /home
+   ForceCommand internal-sftp
+   X11Forwarding no
+   AllowTcpForwarding no
