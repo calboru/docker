@@ -97,7 +97,7 @@ services:
       - sshlogs:/config/logs/openssh
       - /sftp_data/:/home
     ports:
-      - 22:2222cd
+      - 22:2222
     restart: unless-stopped
     networks:
       crowdsec_test:
