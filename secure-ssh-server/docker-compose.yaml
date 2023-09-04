@@ -92,7 +92,7 @@ services:
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
       - ./ssh-server/sshd_config:/etc/ssh/sshd_config
-      - ./ssh-server/id_rsa_for_sshu1.pub:/config/ssh_host_keys/ssh_host_rsa_key:ro
+      #     - ./ssh-server/id_rsa_for_sshu1.pub:/config/ssh_host_keys/ssh_host_rsa_key:ro
       - sshlogs:/config/logs/openssh
     ports:
       - 22:2222
