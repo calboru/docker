@@ -12,7 +12,7 @@ RUN apk update && \
     apk add openssh-server 
 
 RUN adduser -h /home/${USER_NAME} -s /bin/bash ${USER_NAME} && \
-    echo ${USER_NAME}:${USER_PASSWORD} | passwd
+    echo ${USER_NAME}:${USER_PASSWORD} | chpasswd
 
 RUN mkdir /home/${USER_NAME}/.ssh && \
     chmod 700 /home/${USER_NAME}/.ssh  
