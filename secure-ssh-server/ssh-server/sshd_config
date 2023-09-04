@@ -41,7 +41,7 @@ Port 2222
 PermitRootLogin no
 MaxAuthTries 3
 LoginGraceTime 20
-PasswordAuthentication no
+PasswordAuthentication yes
 PermitEmptyPasswords no
 GSSAPIAuthentication no
 ChallengeResponseAuthentication no
