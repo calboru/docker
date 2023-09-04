@@ -108,7 +108,7 @@ LogLevel VERBOSE
 # override default of no subsystems
 #Subsystem	sftp	internal-sftp -l VERBOSE
 Subsystem sftp /usr/lib/openssh/sftp-server -l VERBOSE
-
+UsePAM yes
 # Example of overriding settings on a per-user basis
 Match User manatee
     ForceCommand internal-sftp
