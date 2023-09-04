@@ -1,14 +1,18 @@
 FROM ubuntu:latest
 
+ARG USER_NAME
+ARG USER_PASSWORD
 
+RUN echo ${USER}
+RUN echo ${PASSWORD}
 
 RUN mkdir -p /var/run/sshd
 
 RUN apt update && \
     apt install -y openssh-server 
 
-# RUN useradd -rm -d /home/${USER_NAME} -s /bin/bash ${USER_NAME} && \
-#     echo ${USER_NAME}:${USER_PASSWORD} | chpasswd
+RUN useradd -rm -d /home/${USER_NAME} -s /bin/bash ${USER_NAME} && \
+    echo ${USER_NAME}:${USER_PASSWORD} | chpasswd
 
 RUN mkdir /home/${USER_NAME}/.ssh && \
     chmod 700 /home/${USER_NAME}/.ssh  
