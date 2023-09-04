@@ -29,6 +29,8 @@ RUN mkdir -p /sftp_data/uploads && \
 
 CMD /usr/sbin/sshd -D -E /var/log/auth.log
 
+EXPOSE  22
+
 #BEFORE BUILD THE CONTAINER CREATE SSH KEY
 #ssh-keygen -b 4096 -f id_rsa_for_sshu1
 
