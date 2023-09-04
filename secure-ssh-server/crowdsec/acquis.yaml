@@ -1,4 +1,4 @@
 filenames:
- - /var/log
+ - /config/log/openssh
 labels:
   type: syslog
