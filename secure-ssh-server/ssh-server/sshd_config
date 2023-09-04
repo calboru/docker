@@ -110,6 +110,6 @@ PidFile /config/sshd.pid
 Subsystem	sftp	internal-sftp -l VERBOSE
 
 # Example of overriding settings on a per-user basis
-Match User manatee
-    ForceCommand internal-sftp -l VERBOSE
-    ChrootDirectory /sftp_data
+#Match User manatee
+#    ForceCommand internal-sftp -l VERBOSE
+#    ChrootDirectory /sftp_data
