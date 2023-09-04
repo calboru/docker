@@ -1,7 +1,6 @@
 FROM ubuntu:latest
 
-ARG USER_NAME
-ARG USER_PASSWORD
+
 
 RUN mkdir -p /var/run/sshd
 
