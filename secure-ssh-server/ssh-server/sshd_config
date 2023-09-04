@@ -1,4 +1,4 @@
-#	$OpenBSD: sshd_config,v 1.104 2021/07/02 05:11:21 dtucker Exp $
+#       $OpenBSD: sshd_config,v 1.104 2021/07/02 05:11:21 dtucker Exp $
 
 # This is the sshd server system-wide configuration file.  See
 # sshd_config(5) for more information.
@@ -15,7 +15,7 @@ Port 2222
 #ListenAddress 0.0.0.0
 #ListenAddress ::
 
-HostKey /config/host
+#HostKey /etc/ssh/ssh_host_rsa_key
 #HostKey /etc/ssh/ssh_host_ecdsa_key
 #HostKey /etc/ssh/ssh_host_ed25519_key
 
@@ -34,11 +34,11 @@ HostKey /config/host
 #MaxAuthTries 6
 #MaxSessions 10
 
-PubkeyAuthentication yes
+#PubkeyAuthentication yes
 
 # The default is to check both .ssh/authorized_keys and .ssh/authorized_keys2
 # but this is overridden so installations will only check .ssh/authorized_keys
-AuthorizedKeysFile	/config/.ssh/authorized_keys
+AuthorizedKeysFile      .ssh/authorized_keys
 
 #AuthorizedPrincipalsFile none
 
@@ -52,6 +52,7 @@ AuthorizedKeysFile	/config/.ssh/authorized_keys
 #IgnoreUserKnownHosts no
 # Don't read the user's ~/.rhosts and ~/.shosts files
 #IgnoreRhosts yes
+
 # To disable tunneled clear text passwords, change to no here!
 PasswordAuthentication no
 #PermitEmptyPasswords no
@@ -104,16 +105,13 @@ PidFile /config/sshd.pid
 
 # no default banner path
 #Banner none
-LogLevel VERBOSE
+
 # override default of no subsystems
-#Subsystem	sftp	internal-sftp -l VERBOSE
-Subsystem sftp /usr/lib/openssh/sftp-server -l VERBOSE
-#Subsystem sftp internal-sftp -l AUTH VERBOSE
+Subsystem       sftp    internal-sftp
+
 # Example of overriding settings on a per-user basis
-Match User manatee
-     ForceCommand internal-sftp
-#     ChrootDirectory %h
-#     PermitTunnel no
-#     AllowAgentForwarding no
-#     AllowTcpForwarding no
-#     X11Forwarding no
+#Match User anoncvs
+#       X11Forwarding no
+#       AllowTcpForwarding no
+#       PermitTTY no
+#       ForceCommand cvs server
