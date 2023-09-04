@@ -111,5 +111,5 @@ Subsystem sftp /usr/lib/openssh/sftp-server
 
 # Example of overriding settings on a per-user basis
 #Match User manatee
-ForceCommand internal-sftp
+#ForceCommand internal-sftp
 #    ChrootDirectory /sftp_data
