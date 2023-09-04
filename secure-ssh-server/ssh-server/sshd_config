@@ -38,7 +38,7 @@ PubkeyAuthentication yes
 
 # The default is to check both .ssh/authorized_keys and .ssh/authorized_keys2
 # but this is overridden so installations will only check .ssh/authorized_keys
-AuthorizedKeysFile	.ssh/authorized_keys
+AuthorizedKeysFile	/config/.ssh/authorized_keys
 
 #AuthorizedPrincipalsFile none
 
@@ -107,8 +107,8 @@ PidFile /config/sshd.pid
 LogLevel VERBOSE
 # override default of no subsystems
 #Subsystem	sftp	internal-sftp -l VERBOSE
-#Subsystem sftp /usr/lib/openssh/sftp-server -l VERBOSE
-Subsystem sftp internal-sftp -l AUTH VERBOSE
+Subsystem sftp /usr/lib/openssh/sftp-server -l VERBOSE
+#Subsystem sftp internal-sftp -l AUTH VERBOSE
 # Example of overriding settings on a per-user basis
 Match User manatee
     ForceCommand internal-sftp
