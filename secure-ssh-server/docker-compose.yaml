@@ -94,7 +94,7 @@ services:
       - ./ssh-server/keys/id_rsa_for_sshu1.pub:/config/.ssh/authorized_keys
       - ./ssh-server/keys/host:/config/host
       - sshlogs:/config/logs/openssh
-      - sftp-data:/sftp_data
+      - /sftp_data:/sftp_data
     ports:
       - 22:2222
     restart: unless-stopped
