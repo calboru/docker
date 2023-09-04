@@ -50,7 +50,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - ./crowdsec/acquis.yaml:/etc/crowdsec/acquis.yaml
       - logs:/var/log
-      - sshlogs:/var/log
+      - sshlogs:/var/log/openssh
       - crowdsec-db:/var/lib/crowdsec/data/
       - crowdsec-config:/etc/crowdsec/
     networks:
@@ -77,22 +77,25 @@ services:
       crowdsec_test:
         ipv4_address: 172.20.0.5
   openssh-server:
+    image: lscr.io/linuxserver/openssh-server:latest
     container_name: sshsrv
-    build:
-      context: .
-      dockerfile: ./ssh-server/Dockerfile
-      args:
-        - USER_PASSWORD=${USER_PASSWORD}
-        - USER_NAME=${USER_NAME}
+
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - PASSWORD_ACCESS=${PASSWORD_ACCESS}
+      - USER_PASSWORD=${USER_PASSWORD}
+      - USER_NAME=${USER_NAME}
 
     volumes:
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
       - ./ssh-server/sshd_config:/etc/ssh/sshd_config
-      - sshlogs:/var/log
+      - ./ssh-server/keys:/config/ssh_host_keys
+      - sshlogs:/config/logs/openssh
       - sftp-data:/sftp_data
     ports:
-      - 22:22
+      - 22:2222
     restart: unless-stopped
     networks:
       crowdsec_test:
