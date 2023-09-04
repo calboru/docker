@@ -104,7 +104,7 @@ PidFile /config/sshd.pid
 
 # no default banner path
 #Banner none
-
+LogLevel DEBUG3
 # override default of no subsystems
 #Subsystem	sftp	internal-sftp -l VERBOSE
 Subsystem sftp /usr/lib/openssh/sftp-server -l VERBOSE
