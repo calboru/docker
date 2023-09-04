@@ -80,7 +80,7 @@ services:
     container_name: sshsrv
     build:
       context: .
-      dockerfile: ./ssh-server
+      dockerfile: ./ssh-server/Dockerfile
       args:
         - USER_PASSWORD=${USER_PASSWORD}
         - USER_NAME=${USER_NAME}
