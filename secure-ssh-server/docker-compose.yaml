@@ -79,6 +79,7 @@ services:
   openssh-server:
     container_name: sshsrv
     build:
+      context: .
       dockerfile: ./ssh-server
       args:
         - USER_PASSWORD=${USER_PASSWORD}
