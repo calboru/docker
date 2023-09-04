@@ -100,10 +100,9 @@ volumes:
   logs:
   crowdsec-db:
   crowdsec-config:
-
-networks:
-  crowdsec_test:
-    ipam:
-      driver: default
-      config:
-        - subnet: 172.20.0.0/24
+# networks:
+#   crowdsec_test:
+#     ipam:
+#       driver: default
+#       config:
+#         - subnet: 172.20.0.0/24
