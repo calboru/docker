@@ -77,13 +77,9 @@ services:
       crowdsec_test:
         ipv4_address: 172.20.0.5
   openssh-server:
-    image: lscr.io/linuxserver/openssh-server:latest
+    build: ./ssh-server
     container_name: sshsrv
-
     environment:
-      - PUID=1000
-      - PGID=1000
-      - PASSWORD_ACCESS=${PASSWORD_ACCESS}
       - USER_PASSWORD=${USER_PASSWORD}
       - USER_NAME=${USER_NAME}
 
