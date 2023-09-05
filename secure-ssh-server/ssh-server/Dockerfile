@@ -22,12 +22,20 @@ COPY ./ssh-server/keys/id_rsa_for_sshu1.pub /home/${USER_NAME}/.ssh/authorized_k
 RUN chown ${USER_NAME}:${USER_NAME} -R /home/${USER_NAME}/.ssh && \
     chmod 600 /home/${USER_NAME}/.ssh/authorized_keys
 
-RUN mkdir -p /sftp_data/uploads && \
-    chmod 755 /sftp_data && \
-    chown root:root /sftp_data && \
-    chmod 777 /sftp_data/uploads
+# RUN mkdir -p /sftp_data/uploads && \
+#     chmod 755 /sftp_data && \
+#     chown root:root /sftp_data && \
+#     chmod 777 /sftp_data/uploads
 
-CMD /usr/sbin/sshd -D -E /var/log/auth.log
+RUN mkfifo /etc/ssh/ssh_fifo
+
+#CMD /usr/sbin/sshd -D -E /var/log/auth.log
+
+COPY start_ssh_server.sh /usr/local/bin  
+
+RUN chmod +x /usr/local/bin/start_ssh_server.sh
+
+CMD /usr/local/bin/.start_ssh_server.sh
 
 EXPOSE  2222
 
