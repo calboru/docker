@@ -1,7 +1,7 @@
 #!/bin/bash
 
 path="/etc/ssh"
-fifoFile="$path/ssh_fifo"
+fifoFile="tmp/ssh_fifo"
 logpath=/var/log
 
 #/usr/sbin/sshd -D -E /var/log/auth.log
