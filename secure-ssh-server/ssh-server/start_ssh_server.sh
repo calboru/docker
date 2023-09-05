@@ -1,4 +1,3 @@
-~]$ cat start_ssh_server.sh 
 #!/bin/bash
 
 path="/etc/ssh"
