@@ -27,10 +27,14 @@ RUN chown ${USER_NAME}:${USER_NAME} -R /home/${USER_NAME}/.ssh && \
 #     chown root:root /sftp_data && \
 #     chmod 777 /sftp_data/uploads
 
+RUN echo 'INSTALLING CROWDSEC'
 
 RUN curl -s https://packagecloud.io/install/repositories/crowdsec/crowdsec/script.deb.sh | sudo bash
 
+RUN echo 'INSTALLING IP TABLES BOUNCER'
 RUN sudo apt install crowdsec-firewall-bouncer-iptables
+
+RUN echo 'INSTALLING NF TABLES BOUNCER'
 
 RUN sudo apt install crowdsec-firewall-bouncer-nftables
 
