@@ -29,14 +29,14 @@ RUN chown ${USER_NAME}:${USER_NAME} -R /home/${USER_NAME}/.ssh && \
 
 RUN echo 'INSTALLING CROWDSEC'
 
-#RUN curl -s https://packagecloud.io/install/repositories/crowdsec/crowdsec/script.deb.sh | sudo bash
+RUN curl -s https://packagecloud.io/install/repositories/crowdsec/crowdsec/script.deb.sh | bash
 
-#RUN echo 'INSTALLING IP TABLES BOUNCER'
-#RUN sudo apt install crowdsec-firewall-bouncer-iptables
+RUN echo 'INSTALLING IP TABLES BOUNCER'
+RUN sudo apt install crowdsec-firewall-bouncer-iptables
 
-#RUN echo 'INSTALLING NF TABLES BOUNCER'
+RUN echo 'INSTALLING NF TABLES BOUNCER'
 
-#RUN sudo apt install crowdsec-firewall-bouncer-nftables
+RUN sudo apt install crowdsec-firewall-bouncer-nftables
 
 COPY ./ssh-server/start_ssh_server.sh /usr/local/bin  
 
