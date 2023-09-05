@@ -55,7 +55,8 @@ services:
     networks:
       crowdsec_test:
         ipv4_address: 172.20.0.4
-
+    cap_add:
+      - NET_ADMIN
   #metabase, because security is cool, but dashboards are cooler
   dashboard:
     #we're using a custom Dockerfile so that metabase pops with pre-configured dashboards
