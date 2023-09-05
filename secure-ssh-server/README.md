@@ -1,10 +1,11 @@
 # Standalone SSH/SFTP Server Secured With Crowdsec on Docker Environment
 
-**Prerequisites:** 
+## Prerequisites: 
 * Understanding how to install and operate [Docker](https://docs.docker.com/engine/install/) 
 * Understanding how to install and operate [Docker Compose](https://docs.docker.com/compose/install/)
 * Understanding of Linux Shell commands
 
+## Objective
 This is a standalone SSH/SFTP server secured with Crowdsec IP Tables based firewall. It detects and blocks IP addresses that is unauthorized. 
 With the current configuration default user is limited for only SFTP connection however it can be changed by modifying the SSH Server settings
 file under **sshd_config** folder under **ssh-server** folder: Take a look line #57 to #59. Default user is jailed to **sftp_data** folder which has to be 
