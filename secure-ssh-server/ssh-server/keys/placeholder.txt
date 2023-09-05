@@ -1,1 +1,3 @@
-place holder for the keys
+Create a public and private key by typing:
+ssh-keygen -b 4096 -f id_rsa_for_sshu1
+place your public key into this folder.
