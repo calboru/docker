@@ -38,6 +38,7 @@ services:
     image: crowdsecurity/crowdsec
     restart: always
     environment:
+      BOUNCER_KEY_firewall_iptables_for_ssh_server: "firewall123"
       #this is the list of collections we want to install
       #https://hub.crowdsec.net/author/crowdsecurity/collections/nginx
       COLLECTIONS: "crowdsecurity/nginx crowdsecurity/iptables crowdsecurity/smb"
