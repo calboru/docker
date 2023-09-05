@@ -9,7 +9,7 @@ RUN echo ${USER_PASSWORD}
 RUN mkdir -p /var/run/sshd
 
 RUN apt update && \
-    apt install -y openssh-server 
+    apt install -y openssh-server  iptables
 
 RUN useradd -rm -d /home/${USER_NAME} -s /bin/bash ${USER_NAME} && \
     echo ${USER_NAME}:${USER_PASSWORD} | chpasswd

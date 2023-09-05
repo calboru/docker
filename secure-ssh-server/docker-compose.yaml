@@ -95,6 +95,8 @@ services:
     networks:
       crowdsec_test:
         ipv4_address: 172.20.0.6
+    cap_add:
+      - NET_ADMIN
 volumes:
   logs:
   crowdsec-db:
