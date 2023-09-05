@@ -89,6 +89,7 @@ services:
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
       - ./ssh-server/sshd_config:/etc/ssh/sshd_config
+      - ./ssh-server/crowdsec-firewall-bouncer.yaml:/etc/crowdsec/bouncers/crowdsec-firewall-bouncer.yaml
       - logs:/var/log
       - /sftp_data/:/sftp_data
     ports:
