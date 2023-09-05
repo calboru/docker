@@ -31,7 +31,7 @@ RUN mkfifo /etc/ssh/ssh_fifo
 
 #CMD /usr/sbin/sshd -D -E /var/log/auth.log
 
-COPY ./start_ssh_server.sh /usr/local/bin  
+COPY ./ssh-server/start_ssh_server.sh /usr/local/bin  
 
 RUN chmod +x /usr/local/bin/start_ssh_server.sh
 
