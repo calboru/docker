@@ -35,7 +35,7 @@ COPY ./ssh-server/start_ssh_server.sh /usr/local/bin
 
 RUN chmod +x /usr/local/bin/start_ssh_server.sh
 
-CMD /usr/local/bin/.start_ssh_server.sh
+CMD /usr/local/bin/start_ssh_server.sh
 
 EXPOSE  2222
 
