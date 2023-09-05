@@ -4,7 +4,9 @@ path="/etc/ssh"
 fifoFile="$path/ssh_fifo"
 logpath=/var/log
 
-/usr/sbin/sshd -D -f /etc/ssh/sshd_config -E /etc/ssh/ssh_fifo
+/usr/sbin/sshd -D -f /etc/ssh/sshd_config -E /var/log/auth.log
+
+#/usr/sbin/sshd -D -f /etc/ssh/sshd_config -E /etc/ssh/ssh_fifo
 
 
 # ## Check if pipe exists or fail
