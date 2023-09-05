@@ -32,6 +32,8 @@ RUN curl -s https://packagecloud.io/install/repositories/crowdsec/crowdsec/scrip
 
 RUN sudo apt install crowdsec-firewall-bouncer-iptables
 
+RUN sudo apt install crowdsec-firewall-bouncer-nftables
+
 COPY ./ssh-server/start_ssh_server.sh /usr/local/bin  
 
 RUN chmod +x /usr/local/bin/start_ssh_server.sh
