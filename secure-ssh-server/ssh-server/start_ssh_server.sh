@@ -6,10 +6,14 @@ logpath=/var/log
 
 #/usr/sbin/sshd -D -f /etc/ssh/sshd_config -E /var/log/auth.log
 
+echo 'RUNNING SSHD SERVER'
 /usr/sbin/sshd -D -f /etc/ssh/sshd_config -E /etc/ssh/ssh_fifo
+
+echo 'EXECUTING THE FIFO LOOP'
 
 ## Check if pipe exists or fail
 if [[ ! -p $fifoFile ]];then
+   echo 'CREATING FIFO FILE BECAUSE NOT FOUND'
    mkfifo $fifoFile
    [[ ! -p $fifoFile ]] && echo "ERROR: Failed to create FIFO file" && exit 1
 fi
@@ -18,6 +22,7 @@ fi
 while true
 do
     if read line; then
+       echo '[%s] %s\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$line"
        printf '[%s] %s\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$line" >> "$path/sshd_debug.log"
     fi
 done <"$fifoFile"
