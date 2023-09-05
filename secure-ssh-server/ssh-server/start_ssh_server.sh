@@ -4,27 +4,27 @@ path="/etc/ssh"
 fifoFile="tmp/ssh_fifo"
 logpath=/var/log
 
-#/usr/sbin/sshd -D -E /var/log/auth.log
+/usr/sbin/sshd -D -E /var/log/auth.log
 
-#/usr/sbin/sshd -D  2>&1 | while read line; do printf '[%s] %s\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$line"; done | tee -a /var/log/auth_with_timestamp.log
+# #/usr/sbin/sshd -D  2>&1 | while read line; do printf '[%s] %s\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$line"; done | tee -a /var/log/auth_with_timestamp.log
 
-echo 'RUNNING SSHD SERVER'
-/usr/sbin/sshd -D -f /etc/ssh/sshd_config -E /tmp/ssh_fifo
+# echo 'RUNNING SSHD SERVER'
+# /usr/sbin/sshd -D -f /etc/ssh/sshd_config -E /tmp/ssh_fifo
 
-echo 'EXECUTING THE FIFO LOOP'
+# echo 'EXECUTING THE FIFO LOOP'
 
-## Check if pipe exists or fail
-if [[ ! -p $fifoFile ]];then
-   echo 'CREATING FIFO FILE BECAUSE NOT FOUND'
-   mkfifo $fifoFile
-   [[ ! -p $fifoFile ]] && echo "ERROR: Failed to create FIFO file" && exit 1
-fi
+# ## Check if pipe exists or fail
+# if [[ ! -p $fifoFile ]];then
+#    echo 'CREATING FIFO FILE BECAUSE NOT FOUND'
+#    mkfifo $fifoFile
+#    [[ ! -p $fifoFile ]] && echo "ERROR: Failed to create FIFO file" && exit 1
+# fi
 
-## Monitor the FIFO file and store the SSHD logs
-while true
-do
-    if read line; then
-       echo '[%s] %s\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$line"
-       printf '[%s] %s\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$line" >> "$logpath/sshd_debug.log"
-    fi
-done <"$fifoFile"
+# ## Monitor the FIFO file and store the SSHD logs
+# while true
+# do
+#     if read line; then
+#        echo '[%s] %s\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$line"
+#        printf '[%s] %s\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$line" >> "$logpath/sshd_debug.log"
+#     fi
+# done <"$fifoFile"
