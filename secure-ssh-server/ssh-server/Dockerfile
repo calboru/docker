@@ -32,11 +32,8 @@ RUN echo 'INSTALLING CROWDSEC'
 RUN curl -s https://packagecloud.io/install/repositories/crowdsec/crowdsec/script.deb.sh | bash
 
 RUN echo 'INSTALLING IP TABLES BOUNCER'
+
 RUN apt install -y crowdsec-firewall-bouncer-iptables
-
-RUN echo 'INSTALLING NF TABLES BOUNCER'
-
-RUN  apt install -y crowdsec-firewall-bouncer-nftables
 
 COPY ./ssh-server/start_ssh_server.sh /usr/local/bin  
 
