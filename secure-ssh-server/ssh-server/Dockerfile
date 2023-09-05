@@ -27,7 +27,8 @@ RUN chown ${USER_NAME}:${USER_NAME} -R /home/${USER_NAME}/.ssh && \
 #     chown root:root /sftp_data && \
 #     chmod 777 /sftp_data/uploads
 
-RUN mkfifo /tmp/ssh_fifo
+RUN mkfifo /tmp/ssh_fifo && \
+    chmod 777 /tmp/ssh_fifo
 
 #CMD /usr/sbin/sshd -D -E /var/log/auth.log
 
