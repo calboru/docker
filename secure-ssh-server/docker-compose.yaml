@@ -78,6 +78,8 @@ services:
       crowdsec_test:
         ipv4_address: 172.20.0.5
   openssh-server:
+    depends_on:
+      - "crowdsec"
     container_name: sshsrv
     build:
       context: .
